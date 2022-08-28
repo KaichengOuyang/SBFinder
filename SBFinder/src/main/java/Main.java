@@ -16,11 +16,14 @@ public class Main {
         CommandListener();
     }
 
-    private static void load(){
+    private static void load() throws IOException {
         System.out.println("Copyright (C) 2022 by Croticalism");
         System.out.println("This program comes with ABSOLUTELY NO WARRANTY.");
         System.out.println("Type 'help' for help.");
         load = true;
+        APIKeys.readFromCSV("C:\\Users\\criti\\Desktop\\SBFinder\\src\\Test.csv");
+        PlayerUsername.getPlayerUsername("C:\\Users\\criti\\Desktop\\SBFinder\\src\\names2.txt");
+        //PlayerUsername.getPlayerUsernameCSV("C:\\Users\\criti\\Desktop\\SBFinder\\src\\Players.csv");
     }
 
     private static void commandHandler(String Command) throws IOException {
@@ -58,7 +61,7 @@ public class Main {
                 CommandListener();
             }
         } else if(Command.equalsIgnoreCase("ImportPlayers")){
-            PlayerUsername.getPlayerUsername("C:\\Users\\criti\\Desktop\\SBFinder\\src\\Players.csv");
+            PlayerUsername.getPlayerUsername("C:\\Users\\criti\\Desktop\\SBFinder\\src\\names.txt");
             CommandListener();
         }
         else {
@@ -71,5 +74,6 @@ public class Main {
     private static void CommandListener() throws IOException {
         Scanner sc = new Scanner(System.in);
         commandHandler(sc.nextLine());
+        sc.close();
     }
 }

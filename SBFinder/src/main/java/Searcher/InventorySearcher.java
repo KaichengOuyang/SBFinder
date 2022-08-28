@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class InventorySearcher implements Runnable{
 
-    private Thread t;
     private final String UID;
     private final URL url;
     private final String player;
@@ -28,7 +27,7 @@ public class InventorySearcher implements Runnable{
             try {
                 sc = new Scanner(url.openStream());
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                return;
             }
             //Instantiating the StringBuffer class to hold the result
             StringBuffer sb = new StringBuffer();
@@ -39,15 +38,9 @@ public class InventorySearcher implements Runnable{
             String result = sb.toString();
             result = result.replaceAll("<[^>]*>", "");
             if(result.contains(UID)) {
+                SearcherController.found = true;
                 System.out.println("Found " + UID + " in " + player);
-                System.exit(0);
             }
         }
 
-    public void start () {
-        if (t == null) {
-            t = new Thread (this, UID);
-            t.start ();
-        }
-    }
 }

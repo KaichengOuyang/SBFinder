@@ -1,20 +1,22 @@
 package Searcher;
 
 
-import Utils.APIKeys;
 import Utils.PlayerUsername;
 
-import java.io.IOException;
+import java.util.Random;
 
 public class SearcherController {
-    public static void main(String UUID) throws IOException {
-        int size = PlayerUsername.PlayerUsername.size()%100;
-
-        Thread[] threads = new Thread[size];
+    public static boolean found = false;
+    public static void main(String UUID) {
+        int total = PlayerUsername.PlayerUsername.size();
+        Thread[] threads = new Thread[total];
         for (int i = 0; i < threads.length; i++) {
-            String player = PlayerUsername.PlayerUsername.get(i);
-            threads[i] = new Thread(new InventorySearcher(UUID, player));
-            threads[i].start();
+            try {
+                threads[i] = new Thread(new InventorySearcher(UUID, PlayerUsername.PlayerUsername.get(i)));
+                PlayerUsername.PlayerUsername.remove(i);
+                threads[i].start();
+            } catch (Exception ignored) {
+            }
         }
     }
 }
