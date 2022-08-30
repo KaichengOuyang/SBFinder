@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbfinderfx.sbfinderfx.HelloController">
+   <left>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Players" />
+                  <ListView fx:id="Players" prefHeight="553.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="API Keys" />
+                  <ListView fx:id="APIKeys" prefHeight="388.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </left>
+   <bottom>
+      <Label text="SBFinder - Copyright @ 2022 by Croticalism" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="UsernameMenuItem" mnemonicParsing="false" onAction="#ImportUsername" text="Import Player Usernames" />
+                  <MenuItem fx:id="APIKeysMenuItem" mnemonicParsing="false" onAction="#ImportAPI" text="Import API Keys" />
+              <MenuItem fx:id="CloseMenuItem" mnemonicParsing="false" onAction="#Exit" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="357.0" prefWidth="217.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="129.0" prefWidth="230.0" text="SB FINDER" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Autumn Regular" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label fx:id="Output" alignment="TOP_LEFT" prefHeight="260.0" prefWidth="230.0" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox prefHeight="357.0" prefWidth="170.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="312.0" prefWidth="182.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="78.0" text="Enter the UID :" />
+                  <TextField fx:id="UIDField" prefHeight="26.0" prefWidth="86.0" />
+               </children>
+            </HBox>
+            <Button fx:id="Search" mnemonicParsing="false" onAction="#Search" prefHeight="45.0" prefWidth="170.0" text="Search" />
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
