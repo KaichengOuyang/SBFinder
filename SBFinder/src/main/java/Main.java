@@ -1,6 +1,5 @@
-import Searcher.SearcherController;
-import Utils.APIKeys;
-import Utils.PlayerUsername;
+import Utils.*;
+import Searcher.*;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -22,7 +21,7 @@ public class Main {
         System.out.println("Type 'help' for help.");
         load = true;
         APIKeys.readFromCSV("C:\\Users\\criti\\Desktop\\SBFinder\\src\\Test.csv");
-        PlayerUsername.getPlayerUsername("C:\\Users\\criti\\Desktop\\SBFinder\\src\\names2.txt");
+        PlayerUsername.getPlayerUsernameCSV("C:\\Users\\criti\\Desktop\\SBFinder\\src\\Names2.txt");
         //PlayerUsername.getPlayerUsernameCSV("C:\\Users\\criti\\Desktop\\SBFinder\\src\\Players.csv");
     }
 
@@ -32,7 +31,7 @@ public class Main {
             System.out.println("Usage: Searcher <UID>");
             System.out.println("Example: Searcher db7255c02114");
             CommandListener();
-        }else if(Command.startsWith("Searcher")) {
+        }else if(Command.startsWith("Core/Searcher")) {
             if(APIKeys.APIKeys.size() == 0 && Objects.equals(UID, "") && PlayerUsername.PlayerUsername.size()==0){
                 System.out.println("No API Keys or UID found or no players found");
                 CommandListener();

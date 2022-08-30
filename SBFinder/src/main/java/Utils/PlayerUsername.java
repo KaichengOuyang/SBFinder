@@ -10,6 +10,7 @@ import java.util.List;
 
 public class PlayerUsername {
     public static ArrayList<String> PlayerUsername = new ArrayList<>();
+    public static ArrayList<String> UncheckedPlayers = new ArrayList<>();
 
     public static void getPlayerUsernameCSV(String fileName) throws IOException {
         // File path is passed as parameter
